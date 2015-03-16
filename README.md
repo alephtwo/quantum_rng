@@ -25,7 +25,7 @@ gem 'quantum_rng'
 | hex16  | `block_size`, `count = 1` | `count` hex numbers of `block_size` bytes       |
 | random | `count = 1`               | `count` real numbers between 0 and 1, inclusive |
 | int    | `max`, `count = 1`        | `count` integers in the range `[0, max)`        |
-| float  | `max`, `count = ``        | `count` real numbers in the range `[0, max)`    |
+| float  | `max`, `count = 1`        | `count` real numbers in the range `[0, max)`    |
 
 Every method returns an array of numbers.
 
