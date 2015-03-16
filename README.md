@@ -1,9 +1,9 @@
 # QuantumRNG
-A Ruby gem that leverages the [http://qrng.anu.edu.au/index.php](ANU Quantum Random Numbers Server API).
+A Ruby gem that leverages the [ANU Quantum Random Numbers Server API](http://qrng.anu.edu.au/index.php).
 
 # Acknowledgements
 This gem exists entirely as an interface to the ANU Quantum Random Numbers API. **All of the heavy lifting is done on their side, and any credit belongs entirely to them.** I have just generalized access to the JSON API. 
-Please give them a visit: [http://photonics.anu.edu.au/qoptics/Research/qrng.php](Research)
+Please give them a visit: [http://photonics.anu.edu.au/qoptics/Research/qrng.php](http://photonics.anu.edu.au/qoptics/Research/qrng.php)
 
 ### So, you want random numbers...
 Computers are great at creating pseudorandom numbers, but true randomness requires a little bit more effort.
