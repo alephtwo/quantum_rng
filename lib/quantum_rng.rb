@@ -4,21 +4,16 @@ require 'json'
 
 # QuantumRNG gets random numbers from the ANU Quantum RNG API.
 module QuantumRNG
-  @base = 'http://qrng.anu.edu.au/API/jsonI.php?'
-
   def self.uint8(count = 1)
-    uri = URI.parse "#{@base}length=#{count}&type=uint8"
-    parse_api(uri)
+    make_request(length: count, type: 'uint8')
   end
 
   def self.uint16(count = 1)
-    uri = URI.parse "#{@base}length=#{count}&type=uint16"
-    parse_api(uri)
+    make_request(length: count, type: 'uint16')
   end
 
   def self.hex16(block_size, count = 1)
-    uri = URI.parse "#{@base}length=#{count}&type=hex16&size=#{block_size}"
-    parse_api(uri)
+    make_request(length: count, type: 'hex16', size: block_size)
   end
 
   def self.random(count = 1)
@@ -35,10 +30,12 @@ module QuantumRNG
 
   private
 
-  def self.parse_api(uri)
-    packet = JSON.parse Net::HTTP.get uri
-    if packet['success']
-      packet['data']
+  def self.make_request(queries)
+    q = URI.encode_www_form(queries)
+    uri = URI.parse("http://qrng.anu.edu.au/API/jsonI.php?#{q}")
+    packet = JSON.parse(Net::HTTP.get(uri), symbolize_names: true)
+    if packet[:success]
+      packet[:data]
     else
       fail "[ERROR] #{JSON.pretty_generate(packet)}"
     end
