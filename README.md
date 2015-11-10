@@ -2,7 +2,7 @@
 A Ruby gem that leverages the [ANU Quantum Random Numbers Server API](http://qrng.anu.edu.au/index.php).
 
 # Acknowledgements
-This gem exists entirely as an interface to the ANU Quantum Random Numbers API. **All of the heavy lifting is done on their side, and any credit belongs entirely to them.** I have just generalized access to the JSON API. 
+This gem exists entirely as an interface to the ANU Quantum Random Numbers API. **All of the heavy lifting is done on their side, and any credit belongs entirely to them.** I have just generalized access to the JSON API.
 Please give them a visit: [http://photonics.anu.edu.au/qoptics/Research/qrng.php](http://photonics.anu.edu.au/qoptics/Research/qrng.php)
 
 ### So, you want random numbers...
@@ -34,7 +34,7 @@ gem 'quantum_rng'
 Every method returns an array of numbers.
 
 ## Errors
-* If you are unable to connect to the ANU RNG server for any reason, this gem won't function at all.
+* If you are unable to connect to the ANU RNG server for any reason, this gem will default to similar interactions using `SecureRandom`. In future versions, this will be allowed as a configuration option.
 * Requesting too many numbers (usually where `count > 1025`) or passing invalid arguments will likely cause a RuntimeError. In future versions, this behavior will be softened.
 
 ## Examples
