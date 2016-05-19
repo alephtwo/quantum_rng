@@ -17,7 +17,7 @@ class TestQuantumRNG < Minitest::Test
     assert_equal 1, QuantumRNG.uint16(1).size
     assert_equal 5, QuantumRNG.uint16(5).size
 
-    r = QuantumRNG.uint16(1000).reject { |n| n < 0 || n > 65535 }
+    r = QuantumRNG.uint16(1000).reject { |n| n < 0 || n > 65_535 }
     assert_equal 1000, r.size
   end
 
@@ -45,9 +45,8 @@ class TestQuantumRNG < Minitest::Test
     assert_equal 1000, r.size
   end
 
-
   def test_float
-    awesome = Math::E ** Math::PI ** 2
+    awesome = Math::E**Math::PI**2
     assert_equal 1, QuantumRNG.float(awesome).size
     assert_equal 1, QuantumRNG.float(awesome, 1).size
     assert_equal 5, QuantumRNG.float(awesome, 5).size

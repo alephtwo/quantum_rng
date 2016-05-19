@@ -15,7 +15,7 @@ module QuantumRNG
 
   def self.uint16(count = 1)
     make_request(
-      -> { Array.new(count).map { SecureRandom.random_number(65_535) } },
+      -> { Array.new(count).map { SecureRandom.random_number 65_535 } },
       length: count,
       type: 'uint16'
     )
@@ -44,7 +44,7 @@ module QuantumRNG
 
   private
 
-  def self.make_request(backup, queries)
+  def make_request(backup, queries)
     q = URI.encode_www_form(queries)
     uri = URI.parse("http://qrng.anu.edu.au/API/jsonI.php?#{q}")
     packet = JSON.parse(Net::HTTP.get(uri), symbolize_names: true)

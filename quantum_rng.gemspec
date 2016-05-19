@@ -5,12 +5,12 @@ require 'quantum_rng/version'
 
 Gem::Specification.new do |spec|
   spec.name          = 'quantum_rng'
-  spec.version       = QuantumRng::VERSION
+  spec.version       = QuantumRNG::VERSION
   spec.authors       = ['Ben Christianson']
   spec.email         = ['thhuntertgm@gmail.com']
 
-  spec.summary       = %q{A random number generator that leverages the ANU Quantum Random Nubmers API.}
-  spec.description   = %q{Please see http://qrng.anu.edu.au/FAQ.php#api for more information on the bare JSON API, as well as the science behind it.}
+  spec.summary       = 'A random number generator that leverages the ANU Quantum Random Nubmers API.'
+  spec.description   = 'Please see http://qrng.anu.edu.au/FAQ.php#api for more information on the bare JSON API, as well as the science behind it.'
   spec.homepage      = 'https://github.com/alephtwo/quantum_rng'
   spec.license       = 'MIT'
 

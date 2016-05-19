@@ -1,0 +1,5 @@
+Metrics/LineLength:
+  Exclude:
+    - 'quantum_rng.gemspec'
+Metrics/AbcSize:
+  Max: 17.15

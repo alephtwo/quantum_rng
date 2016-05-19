@@ -1,4 +1,4 @@
 # Gem Version
-module QuantumRng
-  VERSION = '0.2.1'
+module QuantumRNG
+  VERSION = '0.2.2'.freeze
 end
