@@ -42,9 +42,9 @@ module QuantumRNG
     random(count).map { |r| (r * max).to_f }
   end
 
-  private
+  private_class_method
 
-  def make_request(backup, queries)
+  def self.make_request(backup, queries)
     q = URI.encode_www_form(queries)
     uri = URI.parse("http://qrng.anu.edu.au/API/jsonI.php?#{q}")
     packet = JSON.parse(Net::HTTP.get(uri), symbolize_names: true)
