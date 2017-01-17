@@ -2,6 +2,7 @@ require 'quantum_rng/version'
 require 'securerandom'
 require 'net/http'
 require 'json'
+require 'curb'
 
 # QuantumRNG gets random numbers from the ANU Quantum RNG API.
 module QuantumRNG
@@ -46,8 +47,8 @@ module QuantumRNG
 
   def self.make_request(backup, queries)
     q = URI.encode_www_form(queries)
-    uri = URI.parse("http://qrng.anu.edu.au/API/jsonI.php?#{q}")
-    packet = JSON.parse(Net::HTTP.get(uri), symbolize_names: true)
+    data = Curl.get('http://qrng.anu.edu.au/API/jsonI.php', q).body
+    packet = JSON.parse(data, symbolize_names: true)
     if packet[:success]
       packet[:data]
     else
